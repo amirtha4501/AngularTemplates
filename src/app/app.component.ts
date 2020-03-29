@@ -25,7 +25,7 @@ export class AppComponent {
   isFoo = true;
   isSpecial = true;
   clickMessage = 'Clicked the button';
-  
+  fontSizePx = 16;
   heroes = [
     new Hero(1, 'Windstorm'),
     new Hero(13, 'Bombasto'),

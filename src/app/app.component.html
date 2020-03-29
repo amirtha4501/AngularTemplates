@@ -87,3 +87,10 @@
 
   <app-item-detail (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-item-detail>
 </div>
+
+
+<hr><br><br>
+<app-sizer [(size)]="fontSizePx"></app-sizer>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>
+
+<app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
