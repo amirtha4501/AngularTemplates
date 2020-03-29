@@ -4,12 +4,17 @@ import { Item } from '../item';
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
-  styleUrls: ['./item-detail.component.css']
+  styleUrls: ['./item-detail.component.css'],
+  host: {
+    '[class.foo]': 'hasFoo',
+    '[style.color]': 'color'
+  }
 })
 export class ItemDetailComponent implements OnInit {
-  
-  @Input() items: Item[];
   @Input() childItem: string;
+  @Input() items: Item[];
+  @Input() prefix: string;
+
 
   constructor() { }
 

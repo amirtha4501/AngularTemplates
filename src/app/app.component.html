@@ -24,22 +24,53 @@
 <h4><b>Property Binding with Angular</b></h4>
 <h4>Using bind- syntax:</h4>
 <img bind-src="itemImageUrl1">
+<h4>Using [attr.src]</h4>
+
+<img [attr.src]="itemImageUrl2"/>
+
 <h4><b>Binding to the colSpan property</b></h4>
+
 <table border=1>
   <tr><td>Column 1</td><td>Column 2</td></tr>
   <!-- Notice the colSpan property is camel case -->
   <tr><td [colSpan]="2">Span 2 columns</td></tr>
 </table>
+
 <h4><b>Button disabled state bound to isUnchanged property</b></h4>
 <button [disabled]="isUnchanged">Disabled Button</button>
 <hr/>
+
 <h4><b>Binding to a property of a directive</b></h4>
 <p [ngClass]="classes">[ngClass] binding to the classes property making this blue</p>
 <hr/>
+
+
 <h4><b>Return the proper type</b></h4>
+
 <h4>Model property of a custom component</h4>
 <app-item-detail [childItem]="parentItem"></app-item-detail>
 <app-item-detail childItem="parentItem"></app-item-detail>
 
 <h4>Passing in an object</h4>
 <app-item-detail [items]="currentItems"></app-item-detail>
+
+<h4>Initialized string</h4>
+<app-item-detail prefix="This is a one-time initialized string."></app-item-detail>
+
+<h4><b>Property binding vs. interpolation</b></h4>
+<p><img src="{{itemImageUrl1}}"> is the <i>interpolated</i> image.</p>
+<p><img [src]="itemImageUrl1"> is the <i>property bound</i> image.</p>
+
+<p><span>"{{interpolationTitle}}" is the <i>interpolated</i> title.</span></p>
+<p>"<span [innerHTML]="propertyTitle"></span>" is the <i>property bound</i> title.</p>
+
+<h4><b>Content security</b></h4>
+<p><span>"{{evilTitle}}" is the <i>interpolated</i> evil title.</span></p>
+<p>"<span [innerHTML]="evilTitle"></span>" is the <i>property bound</i> evil title.</p>
+<hr>
+
+<h4><b>Attribute binding</b></h4>
+<!-- create and set an aria attribute for assistive technology -->
+<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+<br><br>
+
