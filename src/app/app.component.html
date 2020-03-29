@@ -69,8 +69,21 @@
 <p>"<span [innerHTML]="evilTitle"></span>" is the <i>property bound</i> evil title.</p>
 <hr>
 
-<h4><b>Attribute binding</b></h4>
-<!-- create and set an aria attribute for assistive technology -->
-<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
-<br><br>
+<h1 id="event-binding">Event Binding</h1>
+<div class="group">
+  <h3>Target event</h3>
+  <button (click)="onSave($event)">Save</button>
 
+  <button on-click="onSave($event)">on-click Save</button>
+
+  <h4>myClick is an event on the custom ClickDirective:</h4>
+  <button (myClick)="clickMessage=$event" clickable>click with myClick</button>
+  {{clickMessage}}
+  <br>
+  <input [value]="currentItem.name" (input)="currentItem.name=$event.target.value" >
+  without NgModel
+
+  <br>
+
+  <app-item-detail (deleteRequest)="deleteItem($event)" [item]="currentItem"></app-item-detail>
+</div>

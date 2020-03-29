@@ -1,3 +1,8 @@
 <p *ngIf="childItem">Your item is: {{ childItem }} </p>
 <p *ngFor="let item of items">Items:{{ item.name }}</p>
 <p> {{ prefix }} </p>
+
+<img src="{{itemImageUrl2}}" [style.display]="displayNone">
+<span [style.text-decoration]="lineThrough">{{ item.name }}
+</span>
+<button (click)="delete()">Delete</button>

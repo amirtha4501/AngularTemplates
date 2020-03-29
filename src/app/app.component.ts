@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero';
+import { Item } from './item';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
   styleExpr = 'color: red';
   isFoo = true;
   isSpecial = true;
+  clickMessage = 'Clicked the button';
   
   heroes = [
     new Hero(1, 'Windstorm'),
@@ -34,6 +36,9 @@ export class AppComponent {
     id: 21,
     name: 'phone'
   }];
+  currentItem = {
+    name: 'ammu'
+  }
 
 
   getVal() {
@@ -47,4 +52,21 @@ export class AppComponent {
   onSubmit(data: any) {
     /* referenced but not used */
   }
+
+  onSave(event?: KeyboardEvent) {
+    const evtMsg = event ? ' Event target is ' + (<HTMLElement>event.target).textContent : '';
+    alert('Saved.' + evtMsg);
+    if (event) { event.stopPropagation(); }
+  }
+
+  onClickMe(event?: KeyboardEvent) {
+    const evtMsg = event ? ' Event target class is ' + (<HTMLElement>event.target).className  : '';
+    alert('Click me.' + evtMsg);
+  }
+
+  
+  deleteItem(item: Item) {
+    alert(`Delete the ${item.name}.`);
+  }
+
 }
